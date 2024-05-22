@@ -1,1 +1,6 @@
 .env
+<<<<<<< HEAD
+=======
+/venv
+venv/
+>>>>>>> Frontend
