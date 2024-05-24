@@ -11,7 +11,7 @@ db_password = os.getenv('DB_PASSWORD')
 db_host = os.getenv('DB_HOST')
 db_port = os.getenv('DB_PORT')
 
-df = pd.read_csv('../data/voa_articles.csv')
+df = pd.read_csv('NLPWarehouse/data/tuko_articles.csv')
 
 conn = psycopg2.connect(
     dbname=db_name,
