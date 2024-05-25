@@ -11,7 +11,7 @@ db_password = os.getenv('DB_PASSWORD')
 db_host = os.getenv('DB_HOST')
 db_port = os.getenv('DB_PORT')
 
-df = pd.read_csv('NLPWarehouse/data/tuko_articles.csv')
+df = pd.read_csv('NLPWarehouse/data/preprocessed_data/cleaned_data.csv')
 
 conn = psycopg2.connect(
     dbname=db_name,
@@ -24,10 +24,10 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 create_table_query = '''
-CREATE TABLE IF NOT EXISTS articles (
+CREATE TABLE IF NOT EXISTS preprocessed (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL
+    cleaned_title TEXT NOT NULL,
+    cleaned_content TEXT NOT NULL
 );
 '''
 cur.execute(create_table_query)
@@ -36,7 +36,7 @@ conn.commit()
 for index, row in df.iterrows():
     cur.execute(
         "INSERT INTO articles (Title, Content) VALUES (%s, %s)",
-        (row['Title'], row['Content'])
+        (row['cleaned_title'], row['cleaned_content'])
     )
 
 conn.commit()
