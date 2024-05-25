@@ -26,8 +26,8 @@ cur = conn.cursor()
 create_table_query = '''
 CREATE TABLE IF NOT EXISTS preprocessed (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL
+    cleaned_title TEXT NOT NULL,
+    cleaned_content TEXT NOT NULL
 );
 '''
 cur.execute(create_table_query)
