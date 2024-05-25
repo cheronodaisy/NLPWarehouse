@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000'; // Update with your Flask server URL
+const BASE_URL = 'http://localhost:5000'; 
 
 export const fetchAllTexts = async () => {
   try {
@@ -20,9 +20,18 @@ export const fetchTextById = async (id) => {
   }
 };
 
-export const fetchData = async () => {
+export const searchData = async (query) => {
   try {
-    const response = await axios.get(`${BASE_URL}/data`);
+    const response = await axios.get(`${BASE_URL}/search?query=${query}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const filterData = async (filter) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/filter?filter=${filter}`);
     return response.data;
   } catch (error) {
     throw error;
