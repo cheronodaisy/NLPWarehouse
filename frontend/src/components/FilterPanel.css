@@ -1,0 +1,39 @@
+.filter-panel {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .filter {
+    margin-bottom: 15px;
+  }
+  
+  .filter label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .filter select,
+  .filter input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .filter select {
+    cursor: pointer;
+  }
+  
+  .filter input[type="date"] {
+    appearance: none; /* Remove default appearance */
+  }
+  
+  .filter input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none; /* Hide default date picker */
+  }
+  
