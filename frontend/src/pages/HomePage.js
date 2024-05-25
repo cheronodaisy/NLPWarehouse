@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import DataList from '../components/DataList';
+import DataList from '../components/DataTable';
 import FilterPanel from '../components/FilterPanel';
 import SearchBar from '../components/SearchBar';
 import { fetchData } from '../services/api'; // Import the fetchData function from the API service
