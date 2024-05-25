@@ -33,6 +33,10 @@ def preprocess_text(text):
     text = remove_html_tags_and_special_characters(text)
     return text
 
+def tokenize_text(text):
+    tokens = text.split()
+    return tokens
+
 # Preprocess text data
 cleaned_titles = []
 cleaned_contents = []
@@ -42,8 +46,8 @@ for title, content in zip(df['title'], df['content']):
     cleaned_content = preprocess_text(content)
     
     if is_swahili(cleaned_title) and is_swahili(cleaned_content):
-        cleaned_titles.append(cleaned_title)
-        cleaned_contents.append(cleaned_content)
+        cleaned_titles.append(tokenize_text(cleaned_title))
+        cleaned_contents.append(tokenize_text(cleaned_content))
 
 # Store cleaned data in a new DataFrame and save to CSV
 cleaned_df = pd.DataFrame({'cleaned_title': cleaned_titles, 'cleaned_content': cleaned_contents})
