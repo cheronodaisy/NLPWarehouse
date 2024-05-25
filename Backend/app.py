@@ -23,6 +23,12 @@ def get_db_connection():
         port=DATABASE['port']
     )
     return conn
+
+
+@app.route('/')
+def index():
+    return 'Hello, World!'
+
 #Retrieving data
 @app.route('/texts', methods=['GET'])
 def get_texts():
@@ -46,3 +52,29 @@ def get_text_by_id(id):
         return jsonify(text)
     return ('', 404)
 
+# Search data
+@app.route('/search', methods=['GET'])
+def search_data():
+    query = request.args.get('query')
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+    cur.execute('SELECT * FROM articles WHERE column_name ILIKE %s;', ('%' + query + '%',))
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+    return jsonify(data)
+
+# Filter data
+@app.route('/filter', methods=['GET'])
+def filter_data():
+    filters = request.args
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+    cur.execute('SELECT * FROM articles WHERE column_name = %s;', (filters['filter'],))
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
