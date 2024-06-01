@@ -1,3 +1,5 @@
+import './FilterPanel.css';
+
 import React from 'react';
 
 const FilterPanel = ({ filters, onFilterChange }) => {
