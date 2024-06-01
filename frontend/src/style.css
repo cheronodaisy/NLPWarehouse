@@ -1,0 +1,122 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #00FFC6;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+/* SearchBar styles */
+form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #00FFC6;
+    border-radius: 20px;
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    font-size: 1rem;
+}
+
+input[type="text"]::placeholder {
+    color: #7E7E7E;
+}
+
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #00FFC6;
+    color: #121212;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00CC99;
+}
+
+/* FilterPanel styles */
+#filter-panel {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    color: #00FFC6;
+}
+
+select, input[type="date"] {
+    padding: 10px;
+    border: 2px solid #00FFC6;
+    border-radius: 20px;
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    font-size: 1rem;
+}
+
+/* DataTable styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #00FFC6;
+}
+
+th {
+    background-color: #00FFC6;
+    color: #121212;
+}
+
+tr:hover {
+    background-color: #1E1E1E;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #2A2A2A;
+}
+
+/* Adding some animations */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #00FFC6;
+    }
+    50% {
+        box-shadow: 0 0 20px #00FFC6;
+    }
+    100% {
+        box-shadow: 0 0 5px #00FFC6;
+    }
+}
+
+input[type="text"]:focus, select:focus, input[type="date"]:focus {
+    outline: none;
+    animation: glow 1.5s infinite alternate;
+}

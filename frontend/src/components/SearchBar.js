@@ -1,3 +1,5 @@
+import './SearchBar.css';
+
 import React, { useState } from 'react';
 
 const SearchBar = ({ onSearch }) => {

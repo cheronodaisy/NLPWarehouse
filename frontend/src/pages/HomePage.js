@@ -1,3 +1,5 @@
+import './HomePage.css';
+
 import React, { useEffect, useState } from 'react';
 
 import DataList from '../components/DataTable';
